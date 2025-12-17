@@ -7,7 +7,7 @@ const mongoose=require("mongoose")
 const cors =require("cors")
 PORT =3000
 //middleware
-app.use(cors({origin: "https://naturalhealth.netlify.app"}))
+app.use(cors({origin: "https://naturalhealthbd.netlify.app"}))
 app.use(express.json())
 
 //mongoose atlas connect
