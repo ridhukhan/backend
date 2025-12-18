@@ -41,14 +41,14 @@ const orderSchema = new mongoose.Schema({
      price :{
         type: String,
         required: true
-    },
+    }
 });
 
 const Order = mongoose.model("Order" ,orderSchema)
 
 
 app.post("/order", async (req,res)=>{
-const {name,phone,address}=req.body
+const {name,phone,address,quantity,price}=req.body
 if(!name || !phone || !address){ 
 
     return res.status(400).json({
