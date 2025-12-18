@@ -7,7 +7,7 @@ const mongoose=require("mongoose")
 const cors =require("cors")
 PORT =3000
 //middleware
-app.use(cors({origin: "https://naturalhealth.netlify.app"}))
+app.use(cors({origin: "https://naturalhealthbd.netlify.app"}))
 app.use(express.json())
 
 //mongoose atlas connect
@@ -33,7 +33,15 @@ const orderSchema = new mongoose.Schema({
      address :{
         type: String,
         required: true
-    }
+    },
+     quantity :{
+        type: String,
+        required: true
+    },
+     price :{
+        type: String,
+        required: true
+    },
 });
 
 const Order = mongoose.model("Order" ,orderSchema)
@@ -50,7 +58,9 @@ if(!name || !phone || !address){
 const newOrder=new Order({
     name,
     phone,
-    address
+    address,
+    quantity,
+    price
 });
 await newOrder.save()
 res.status(201).json({
